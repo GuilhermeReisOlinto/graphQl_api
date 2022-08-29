@@ -1,0 +1,341 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Cliente {
+  id: Float!
+  nome: String!
+  cpf: String!
+  email: String!
+  cep: String!
+  cidade: String!
+  uf: String!
+  logradouro: String!
+  numero: Float!
+  bairro: String!
+}
+
+type DeleteManyResponse {
+  """The number of records deleted."""
+  deletedCount: Int!
+}
+
+type ClienteDeleteResponse {
+  id: Float
+  nome: String
+  cpf: String
+  email: String
+  cep: String
+  cidade: String
+  uf: String
+  logradouro: String
+  numero: Float
+  bairro: String
+}
+
+type UpdateManyResponse {
+  """The number of records updated."""
+  updatedCount: Int!
+}
+
+type ClienteEdge {
+  """The node containing the Cliente"""
+  node: Cliente!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+"""Cursor for paging through collections"""
+scalar ConnectionCursor
+
+type PageInfo {
+  """true if paging forward and there are more records."""
+  hasNextPage: Boolean
+
+  """true if paging backwards and there are more records."""
+  hasPreviousPage: Boolean
+
+  """The cursor of the first returned record."""
+  startCursor: ConnectionCursor
+
+  """The cursor of the last returned record."""
+  endCursor: ConnectionCursor
+}
+
+type ClienteConnection {
+  """Paging information"""
+  pageInfo: PageInfo!
+
+  """Array of edges."""
+  edges: [ClienteEdge!]!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+type ClienteAggregateGroupBy {
+  nome: String
+  cpf: String
+  email: String
+  cep: String
+  cidade: String
+  uf: String
+  logradouro: String
+  numero: Float
+  bairro: String
+}
+
+type ClienteCountAggregate {
+  nome: Int
+  cpf: Int
+  email: Int
+  cep: Int
+  cidade: Int
+  uf: Int
+  logradouro: Int
+  numero: Int
+  bairro: Int
+}
+
+type ClienteSumAggregate {
+  numero: Float
+}
+
+type ClienteAvgAggregate {
+  numero: Float
+}
+
+type ClienteMinAggregate {
+  nome: String
+  cpf: String
+  email: String
+  cep: String
+  cidade: String
+  uf: String
+  logradouro: String
+  numero: Float
+  bairro: String
+}
+
+type ClienteMaxAggregate {
+  nome: String
+  cpf: String
+  email: String
+  cep: String
+  cidade: String
+  uf: String
+  logradouro: String
+  numero: Float
+  bairro: String
+}
+
+type Query {
+  cliente(
+    """The id of the record to find."""
+    id: ID!
+  ): Cliente
+  clientes(
+    """Limit or page results."""
+    paging: CursorPaging = {first: 10}
+
+    """Specify to filter the records returned."""
+    filter: ClienteFilter = {}
+
+    """Specify to sort results."""
+    sorting: [ClienteSort!] = []
+  ): ClienteConnection!
+}
+
+input CursorPaging {
+  """Paginate before opaque cursor"""
+  before: ConnectionCursor
+
+  """Paginate after opaque cursor"""
+  after: ConnectionCursor
+
+  """Paginate first"""
+  first: Int
+
+  """Paginate last"""
+  last: Int
+}
+
+input ClienteFilter {
+  and: [ClienteFilter!]
+  or: [ClienteFilter!]
+  nome: StringFieldComparison
+  cpf: StringFieldComparison
+  email: StringFieldComparison
+  cep: StringFieldComparison
+  cidade: StringFieldComparison
+  uf: StringFieldComparison
+  logradouro: StringFieldComparison
+  numero: NumberFieldComparison
+  bairro: StringFieldComparison
+}
+
+input StringFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: String
+  neq: String
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  like: String
+  notLike: String
+  iLike: String
+  notILike: String
+  in: [String!]
+  notIn: [String!]
+}
+
+input NumberFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: Float
+  neq: Float
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  in: [Float!]
+  notIn: [Float!]
+  between: NumberFieldComparisonBetween
+  notBetween: NumberFieldComparisonBetween
+}
+
+input NumberFieldComparisonBetween {
+  lower: Float!
+  upper: Float!
+}
+
+input ClienteSort {
+  field: ClienteSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum ClienteSortFields {
+  nome
+  cpf
+  email
+  cep
+  cidade
+  uf
+  logradouro
+  numero
+  bairro
+}
+
+"""Sort Directions"""
+enum SortDirection {
+  ASC
+  DESC
+}
+
+"""Sort Nulls Options"""
+enum SortNulls {
+  NULLS_FIRST
+  NULLS_LAST
+}
+
+type Mutation {
+  createOneCliente(input: CreateOneClienteInput!): Cliente!
+  createManyClientes(input: CreateManyClientesInput!): [Cliente!]!
+  updateOneCliente(input: UpdateOneClienteInput!): Cliente!
+  updateManyClientes(input: UpdateManyClientesInput!): UpdateManyResponse!
+  deleteOneCliente(input: DeleteOneClienteInput!): ClienteDeleteResponse!
+  deleteManyClientes(input: DeleteManyClientesInput!): DeleteManyResponse!
+}
+
+input CreateOneClienteInput {
+  """The record to create"""
+  cliente: CreateClienteInput!
+}
+
+input CreateClienteInput {
+  nome: String!
+  cpf: String
+  email: String!
+  cep: String!
+  cidade: String!
+  uf: String!
+  logradouro: String!
+  numero: Float!
+  bairro: String!
+}
+
+input CreateManyClientesInput {
+  """Array of records to create"""
+  clientes: [CreateClienteInput!]!
+}
+
+input UpdateOneClienteInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdateClienteInput!
+}
+
+input UpdateClienteInput {
+  nome: String
+  cpf: String
+  email: String
+  cep: String
+  cidade: String
+  uf: String
+  logradouro: String
+  numero: Float
+  bairro: String
+  id: Int!
+}
+
+input UpdateManyClientesInput {
+  """Filter used to find fields to update"""
+  filter: ClienteUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: UpdateClienteInput!
+}
+
+input ClienteUpdateFilter {
+  and: [ClienteUpdateFilter!]
+  or: [ClienteUpdateFilter!]
+  nome: StringFieldComparison
+  cpf: StringFieldComparison
+  email: StringFieldComparison
+  cep: StringFieldComparison
+  cidade: StringFieldComparison
+  uf: StringFieldComparison
+  logradouro: StringFieldComparison
+  numero: NumberFieldComparison
+  bairro: StringFieldComparison
+}
+
+input DeleteOneClienteInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+input DeleteManyClientesInput {
+  """Filter to find records to delete"""
+  filter: ClienteDeleteFilter!
+}
+
+input ClienteDeleteFilter {
+  and: [ClienteDeleteFilter!]
+  or: [ClienteDeleteFilter!]
+  nome: StringFieldComparison
+  cpf: StringFieldComparison
+  email: StringFieldComparison
+  cep: StringFieldComparison
+  cidade: StringFieldComparison
+  uf: StringFieldComparison
+  logradouro: StringFieldComparison
+  numero: NumberFieldComparison
+  bairro: StringFieldComparison
+}
